@@ -2,10 +2,17 @@ class UsersController < ApplicationController
   before_action:authenticate_user,{only: [:index,:show,:edit,:update]}
   before_action:forbid_login_user,{only: [:new,:create,:login_form,:login]}
   before_action:ensure__correct_user,{only:[:edit,:update]}
+  before_action:ensure__correct_manager,{only:[:index]}
   def ensure__correct_user
     if @current_user.id != params[:id].to_i
       flash[:notice]="権限がありません"
-      redirect_to("/users/index")
+      redirect_to("/users/#{@current_user.id}")
+    end
+  end
+  def ensure__correct_manager
+    if @current_user.id != 1
+      flash[:notice]="権限がありません"
+      redirect_to("/users/#{@current_user.id}")
     end
   end
   def index
@@ -54,7 +61,7 @@ class UsersController < ApplicationController
     if @user
       session[:user_id]=@user.id
       flash[:notice]="ログインしました"
-      redirect_to("/users/index")
+      redirect_to("/users/#{@user.id}")
     else
       @error_message="メールアドレスまたはパスワードが間違っています"
       @email=params[:email]

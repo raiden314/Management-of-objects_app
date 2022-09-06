@@ -24,9 +24,11 @@
           <li>
               <%= link_to(@current_user.name,"/users/#{@current_user.id}") %>
           </li>
-          <li>
-            <%= link_to("ユーザー一覧", "/users/index") %>
-          </li>
+          <% if @current_user.id == 1 %>
+            <li>
+              <%= link_to("ユーザー一覧", "/users/index") %>
+            </li>
+          <% end %>
           <li>
             <%= link_to("ログアウト", "/logout") %>
           </li>
