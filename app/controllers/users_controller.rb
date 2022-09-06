@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action:authenticate_user,{only: [:index,:show,:edit,:update]}
   before_action:forbid_login_user,{only: [:new,:create,:login_form,:login]}
-  before_action:ensure__correct_user,{only:[:edit,:update]}
+  before_action:ensure__correct_user,{only:[:show,:edit,:update]}
   before_action:ensure__correct_manager,{only:[:index]}
   def ensure__correct_user
     if @current_user.id != params[:id].to_i
