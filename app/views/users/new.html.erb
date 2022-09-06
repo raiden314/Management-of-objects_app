@@ -10,11 +10,8 @@
       <% end %>
         <%= form_tag("/users/create") do %>
             <p>ユーザー名</p>
-            <!-- <input>タグを用いて1行の入力フォームを作成してください -->
             <input name="name" value="<%= @user.name %>">
-            
             <p>メールアドレス</p>
-            <!-- <input>タグを用いて1行の入力フォームを作成してください -->
             <input name="email" value="<%= @user.email %>">
             <p>パスワード</p>
             <input type="password" name="password" value="<%= @user.password %>">
