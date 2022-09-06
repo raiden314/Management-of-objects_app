@@ -1,16 +1,17 @@
 class UsersController < ApplicationController
   before_action:authenticate_user,{only: [:index,:show,:edit,:update]}
   before_action:forbid_login_user,{only: [:new,:create,:login_form,:login]}
-  before_action:ensure__correct_user,{only:[:show,:edit,:update]}
-  before_action:ensure__correct_manager,{only:[:index]}
+  before_action:ensure__correct_user,{only:[:edit,:update]}
+  before_action:ensure__correct_manager,{only:[:show,:index]}
+  
   def ensure__correct_user
-    if @current_user.id != params[:id].to_i
+    if @current_user.id != params[:id].to_i 
       flash[:notice]="権限がありません"
       redirect_to("/users/#{@current_user.id}")
     end
   end
   def ensure__correct_manager
-    if @current_user.id != 1
+    if @current_user.id != 1 && @current_user.id != params[:id].to_i
       flash[:notice]="権限がありません"
       redirect_to("/users/#{@current_user.id}")
     end
@@ -53,6 +54,7 @@ class UsersController < ApplicationController
       render("users/edit",status: :unprocessable_entity)
     end
   end
+
   def login_form
     
   end
@@ -73,5 +75,10 @@ class UsersController < ApplicationController
     session[:user_id]=nil
     flash[:notice]="ログアウトしました"
     redirect_to("/login")
+  end
+  def destroy
+    @user = User.find_by(id: params[:id])
+    @user.destroy
+    redirect_to("/users/index")
   end
 end
