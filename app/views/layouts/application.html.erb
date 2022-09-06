@@ -14,7 +14,11 @@
   <header>
       <div class="header-logo">
         <% if @current_user %>
-          <%= link_to("TweetApp", "/users/index") %>
+          <% if @current_user.id != 1 %>
+            <%= link_to("TweetApp", "/posts/index") %>
+          <% else %>
+            TweetApp
+          <% end %>
         <% else %>
           <%= link_to("TweetApp", "/") %>
         <% end %>
@@ -27,6 +31,11 @@
           <% if @current_user.id == 1 %>
             <li>
               <%= link_to("ユーザー一覧", "/users/index") %>
+            </li>
+          <% end %>
+          <% if @current_user.id != 1 %>
+            <li>
+            <%= link_to("投稿一覧", "/posts/index") %>
             </li>
           <% end %>
           <li>
