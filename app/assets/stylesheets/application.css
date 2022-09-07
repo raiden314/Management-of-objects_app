@@ -199,7 +199,22 @@
   .form-body {
     padding: 30px;
   }
+  .from-list li {
+    float: left;
+    line-height: 64px;
+    font-size: 13px;
+    color: white;
+    padding-left: 15px;
+  }
   
+  .from-font li {
+    float: left;
+    line-height: 64px;
+    font-size: 13px;
+    color: black;
+    padding-left: 15px;
+  }
+
   .form-error {
     color: #ff4d75;
   }

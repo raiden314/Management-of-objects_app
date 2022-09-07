@@ -1,0 +1,29 @@
+<div class="main posts-new">
+  <div class="container">
+    <h1 class="form-heading">登録する</h1>
+    <div class="form">
+      <div class="form-body">
+        <%= form_tag("/posts/create",{multipart: true}) do %>
+            <div>
+                <label for="name">名前</label>
+                <input name="name" value="<%= @name %>">
+            </div>
+            <div>
+                <label for="image_name">写真</label>
+                <input name="image" type="file" value="<%= @image_name %>">
+            </div>
+            <div>
+                <label for="date">期限</label>
+                
+                <input value="<%= @dete %>" type="date" name="date" id="date">
+            </div>
+            <div>
+                <label for="memo">注記</label>
+                <textarea name="memo" value"<%= @memo %>"></textarea>
+            </div>
+            <input type="submit" value="投稿">
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

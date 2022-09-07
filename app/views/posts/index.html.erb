@@ -3,7 +3,7 @@
   <div class="container">
     <% @posts.each do |post| %>
         <div class="posts-index-item">
-            <%= post.name %>
+          <%= link_to(post.name,"/posts/#{post.id}") %>
         </div>
     <% end %>
   </div>
