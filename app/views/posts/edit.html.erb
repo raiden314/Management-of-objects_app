@@ -1,0 +1,24 @@
+<div class="main posts-new">
+  <div class="container">
+    <h1 class="form-heading">編集する</h1>
+    <%= form_tag("/posts/#{@post.id}/update",{multipart: true}) do %>
+        <div>
+            <label for="name">名前</label>
+            <input name="name" value="<%= @post.name %>">
+        </div>
+        <div>
+            <label for="image_name">写真</label>
+            <input name="image" type="file" value="<%= @post.image_name %>">
+        </div>
+        <div>
+            <label for="date">期限</label>
+            <input name="date" type="date">
+        </div>
+        <div>
+            <label for="memo">注記</label>
+            <textarea name="memo" ><%= @post.memo %></textarea>
+        </div>
+        <input type="submit" value="更新">
+    <% end %>
+  </div>
+</div>

@@ -1,13 +1,33 @@
 <div class="main posts-show">
   <div class="container">
     <div class="posts-show-item">
-      <p><%= @post.name %></p>
-
-      <p><%= @post.date %></p>
-      <p><%= @post.memo %></p>
-      <img src="<%="/post_images/#{@post.image_name}" %>">
+      <ul>
+        <div class="name_body">
+          <li>名前:</li>
+          <li><%= @post.name %></li>
+          
+        </div>
+        <div class="date_body">
+          <li>期限:</li>
+          <li><%=   @post.date %></li>
+        </div>
+        <div class="memo_body">
+          <li>注記:</li>
+          <li><%= @post.memo %></li>
+        </div>
+        <% if @post_images == nil %>
+          <li><img class="posts_image" src="<%="/post_images/#{@post.image_name}" %>"></li>
+        <% end %>
+        </ul>
+      <p></p>
+      
+      
       <div class="post-time">
-        <%= @post.created_at %>
+        <%= l @post.created_at %>
+      </div>
+      <div class="post-menus">
+        <%= link_to("編集", "/posts/#{@post.id}/edit") %>
+        <%= button_to("削除", "/posts/#{@post.id}/destroy", data: { turbo_method: :delete }) %>
       </div>
     </div>
   </div>

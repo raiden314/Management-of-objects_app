@@ -1,0 +1,17 @@
+ja:
+  activerecord:
+    models:
+      post: 役職  #g
+      user: ユーザー  #g
+
+    attributes:
+      post:
+        date: 日にち  #g
+        image_name: 画像名  #g
+        memo: メモ  #g
+        name: 名前  #g
+
+      user:
+        email: Eメール  #g
+        name: 名前  #g
+        password: パスワード  #g
