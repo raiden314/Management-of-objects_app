@@ -228,7 +228,7 @@ DEPENDENCIES
   i18n_generators
   importmap-rails
   jbuilder
-  pg (= 0.20.0)
+  pg
   puma (~> 5.0)
   rails (~> 7.0.3)
   selenium-webdriver
