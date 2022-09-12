@@ -57,22 +57,18 @@ gem "bootsnap", require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
-  gem  'sqlite3',  '1.3.13'
+  gem  'sqlite3'
   gem 'byebug', '9.0.6', platform: :mri
 end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
-  gem 'listen', '3.1.5'
-  gem 'spring', '2.0.2'
-  gem 'spring-watcher-listen', '2.0.1'
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
-  gem 'i18n_generators'
 end
 
 group :test do

@@ -72,6 +72,7 @@ GEM
     bootsnap (1.13.0)
       msgpack (~> 1.2)
     builder (3.2.4)
+    byebug (9.0.6)
     capybara (3.37.1)
       addressable
       matrix
@@ -93,9 +94,6 @@ GEM
       activesupport (>= 5.0)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
-    i18n_generators (2.2.2)
-      activerecord (>= 3.0.0)
-      railties (>= 3.0.0)
     importmap-rails (1.1.5)
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
@@ -223,12 +221,12 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
+  byebug (= 9.0.6)
   capybara
   debug
-  i18n_generators
   importmap-rails
   jbuilder
-  pg
+  pg (= 0.20.0)
   puma (~> 5.0)
   rails (~> 7.0.3)
   selenium-webdriver
