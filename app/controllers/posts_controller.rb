@@ -18,7 +18,7 @@ class PostsController < ApplicationController
       date:params[:date],
       memo:params[:memo],
       image_name:"",
-      user_id: @current_user.id
+      user_id: "#{@current_user.id}"
     )
     if params[:image]
       @post.image_name = "@pos.id"
