@@ -10,14 +10,16 @@ class PostsController < ApplicationController
   def new
 
   end
-  $cnt=1
+  p = Post.all.ids
+  cnts=p.last(1)
+  $cnt=cnts[0]+1
   def create
     @post=Post.new(
       name:params[:name],
       date:params[:date],
-      memo:params[:memo],
-      user_id: "#{@current_user.id}"
+      memo:params[:memo]
       )
+    @post.user_id="#{@current_user.id}"
     if params[:image]
       @post.image_name="#{$cnt}.jpg"
       $cnt=$cnt+1
@@ -48,6 +50,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    $cnt=$cnt + 14
     @post = Post.find_by(id: params[:id])
     @post.destroy
     redirect_to("/posts/index")
