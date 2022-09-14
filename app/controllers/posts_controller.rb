@@ -12,7 +12,6 @@ class PostsController < ApplicationController
   end
   p = Post.all.ids
   cnts=p.last(1)
-  $cnt=cnts[0]+1
   def create
     @post=Post.new(
       name:params[:name],
@@ -21,6 +20,7 @@ class PostsController < ApplicationController
       )
     @post.user_id="#{@current_user.id}"
     if params[:image]
+      $cnt=cnts[0]+1
       @post.image_name="#{$cnt}.jpg"
       $cnt+=1
       image = params[:image]
