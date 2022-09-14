@@ -22,7 +22,7 @@ class PostsController < ApplicationController
     @post.user_id="#{@current_user.id}"
     if params[:image]
       @post.image_name="#{$cnt}.jpg"
-      $cnt=$cnt+1
+      $cnt+=1
       image = params[:image]
       File.binwrite("public/post_images/#{@post.image_name}",image.read)
     end
