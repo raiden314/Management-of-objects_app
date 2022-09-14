@@ -10,18 +10,17 @@ class PostsController < ApplicationController
   def new
 
   end
-
+  $cnt=1
   def create
-    @pos = Post.find_by(id: params[:id])
     @post=Post.new(
       name:params[:name],
       date:params[:date],
       memo:params[:memo],
-      image_name:"",
       user_id: "#{@current_user.id}"
-    )
+      )
     if params[:image]
-      @post.image_name = "@pos.id"
+      @post.image_name="#{$cnt}.jpg"
+      $cnt=$cnt+1
       image = params[:image]
       File.binwrite("public/post_images/#{@post.image_name}",image.read)
     end
