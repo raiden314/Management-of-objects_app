@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.where user_id: "#{@current_user.id}"
+    @posts = Post.where user_id: "#{@current_user}"
   end
 
   def show
@@ -18,7 +18,7 @@ class PostsController < ApplicationController
       date:params[:date],
       memo:params[:memo]
       )
-    @post.user_id="#{@current_user.id}"
+    @post.user_id="#{@current_user}"
     if params[:image]
       $cnt=cnts[0]+1
       @post.image_name="#{$cnt}.jpg"
