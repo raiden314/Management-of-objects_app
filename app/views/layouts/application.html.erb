@@ -28,11 +28,11 @@
           <li>
               <%= link_to(@current_user.name,"/users/#{@current_user.id}") %>
           </li>
-          <% if @current_user.id == 1 %>
+          #<% if @current_user.id == 1 %>
             <li>
               <%= link_to("ユーザー一覧", "/users/index") %>
             </li>
-          <% end %>
+          #<% end %>
           <% if @current_user.id != 1 %>
             <li>
             <%= link_to("投稿一覧", "/posts/index") %>
