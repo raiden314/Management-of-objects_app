@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.where user_id: session[:user_id]
+    @posts = Post.where user_id: "#{@current_user.id}"
   end
 
   def show
