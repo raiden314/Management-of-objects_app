@@ -18,7 +18,7 @@ class PostsController < ApplicationController
       date:params[:date],
       memo:params[:memo]
       )
-    @post.user_id="#{@current_user}"
+    @post.user_id=session[:user_id]
     if params[:image]
       $cnt=cnts[0]+1
       @post.image_name="#{$cnt}.jpg"
