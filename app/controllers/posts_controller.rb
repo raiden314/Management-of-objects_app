@@ -1,6 +1,11 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.where user_id: "#{@current_user.id}"
+    if @current_user != 1 
+      @posts = Post.where user_id: "#{@current_user.id}"
+    else
+      @post = Post.all.order(user_id: :asc)
+      @posts = @post.user_id
+    end
   end
 
   def show
@@ -10,6 +15,7 @@ class PostsController < ApplicationController
   def new
 
   end
+  i = 1
   p = Post.all.ids
   $cnts=p.last
   def create

@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action:authenticate_user,{only: [:index,:show,:edit,:update]}
   before_action:forbid_login_user,{only: [:new,:create,:login_form,:login]}
   before_action:ensure__correct_user,{only:[:edit,:update]}
-  
+  before_action:ensure__correct_notmanager,{only:[:show,:index]}
   
   def ensure__correct_user
     if @current_user.id != params[:id].to_i 
@@ -10,7 +10,7 @@ class UsersController < ApplicationController
       redirect_to("/users/#{@current_user.id}")
     end
   end
-  def ensure__correct_manager
+  def ensure__correct_notmanager
     if @current_user.id != 1 && @current_user.id != params[:id].to_i
       flash[:notice]="権限がありません"
       redirect_to("/users/#{@current_user.id}")

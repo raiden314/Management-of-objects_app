@@ -3,7 +3,15 @@
   <div class="container">
     <% @posts.each do |post| %>
         <div class="posts-index-item">
-          <%= link_to(post.name,"/posts/#{post.id}") %>
+          <% if @current_user != 1 %>
+            <%= link_to(post.name,"/posts/#{post.id}") %>
+          <% else %>
+            <% if  @posts.id != i %>
+              <%= @posts.id %>
+              <% i = i + 1%>
+            <% end %>
+            <%= link_to(post.name,"/posts/#{post.id}") %> %>
+          <% end %>
         </div>
     <% end %>
   </div>
