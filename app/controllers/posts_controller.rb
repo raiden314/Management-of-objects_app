@@ -11,7 +11,7 @@ class PostsController < ApplicationController
 
   end
   p = Post.all.ids
-  $cnts=p.last[1]
+  $cnts=p.last
   def create
     @post=Post.new(
       name:params[:name],

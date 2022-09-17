@@ -16,7 +16,7 @@
           <li><%= @post.memo %></li>
         </div>
         <% if @post_images == nil %>
-          <li><img class="posts_image" src="<%="/post_images/#{post.image_name}" %>"></li>
+          <li><img class="posts_image" src="<%="/post_images/#{@post.image_name}" %>"></li>
         <% end %>
         </ul>
       <p></p>
