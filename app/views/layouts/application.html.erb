@@ -33,11 +33,10 @@
               <%= link_to("ユーザー一覧", "/users/index") %>
             </li>
           <% end %>
-          
+          <% if @current_user.id != 1 %>
             <li>
             <%= link_to("投稿一覧", "/posts/index") %>
             </li>
-            <% if @current_user.id != 1 %>
             <li>
               <%= link_to("新規投稿","/posts/new") %>
             </li>
@@ -47,7 +46,7 @@
           </li>
         <% else %>
           <li>
-            <%= link_to("TMSとは", "/about") %>
+            <%= link_to("TMSの使い方", "/about") %>
           </li>
           <li>
             <%= link_to("新規登録", "/users/signup") %>
