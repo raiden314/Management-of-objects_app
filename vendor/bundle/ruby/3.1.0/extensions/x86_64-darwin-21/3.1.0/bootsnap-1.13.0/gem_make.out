@@ -1,0 +1,15 @@
+current directory: /Users/t-masato/Management-of-objects_app/vendor/bundle/ruby/3.1.0/gems/bootsnap-1.13.0/ext/bootsnap
+/Users/t-masato/.rbenv/versions/3.1.2/bin/ruby -I /Users/t-masato/.rbenv/versions/3.1.2/lib/ruby/3.1.0 -r ./siteconf20221016-3614-8n8417.rb extconf.rb
+creating Makefile
+
+current directory: /Users/t-masato/Management-of-objects_app/vendor/bundle/ruby/3.1.0/gems/bootsnap-1.13.0/ext/bootsnap
+make DESTDIR\= clean
+
+current directory: /Users/t-masato/Management-of-objects_app/vendor/bundle/ruby/3.1.0/gems/bootsnap-1.13.0/ext/bootsnap
+make DESTDIR\=
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.bundle
+
+current directory: /Users/t-masato/Management-of-objects_app/vendor/bundle/ruby/3.1.0/gems/bootsnap-1.13.0/ext/bootsnap
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 bootsnap.bundle ./.gem.20221016-3614-u32o75/bootsnap

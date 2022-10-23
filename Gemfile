@@ -77,3 +77,8 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+gem 'whenever', require: false
+group :development do
+  gem 'letter_opener'
+  gem 'letter_opener_web', '~> 1.0'
+end

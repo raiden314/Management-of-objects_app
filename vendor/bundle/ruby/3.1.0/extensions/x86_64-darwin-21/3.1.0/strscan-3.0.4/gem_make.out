@@ -1,0 +1,16 @@
+current directory: /Users/t-masato/Management-of-objects_app/vendor/bundle/ruby/3.1.0/gems/strscan-3.0.4/ext/strscan
+/Users/t-masato/.rbenv/versions/3.1.2/bin/ruby -I /Users/t-masato/.rbenv/versions/3.1.2/lib/ruby/3.1.0 -r ./siteconf20221016-3614-mocd64.rb extconf.rb
+checking for onig_region_memsize() in ruby.h... yes
+creating Makefile
+
+current directory: /Users/t-masato/Management-of-objects_app/vendor/bundle/ruby/3.1.0/gems/strscan-3.0.4/ext/strscan
+make DESTDIR\= clean
+
+current directory: /Users/t-masato/Management-of-objects_app/vendor/bundle/ruby/3.1.0/gems/strscan-3.0.4/ext/strscan
+make DESTDIR\=
+compiling strscan.c
+linking shared-object strscan.bundle
+
+current directory: /Users/t-masato/Management-of-objects_app/vendor/bundle/ruby/3.1.0/gems/strscan-3.0.4/ext/strscan
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 strscan.bundle ./.gem.20221016-3614-c1m7w8

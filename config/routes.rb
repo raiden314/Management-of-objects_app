@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   post "users/:id/destroy" => "users#destroy"
   get "/" => 'home#top'
   get "about" => "home#about"
+  mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

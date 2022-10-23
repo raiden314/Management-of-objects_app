@@ -16,7 +16,11 @@ class PostsController < ApplicationController
 
   end
   i = 1
-  p = Post.all.ids
+  if Post.all.ids == []
+    p = [0]
+  else
+    p = Post.all.ids
+  end
   $cnts=p.last
   def create
     @post=Post.new(
@@ -56,7 +60,6 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    $cnt=$cnt + 14
     @post = Post.find_by(id: params[:id])
     @post.destroy
     redirect_to("/posts/index")
