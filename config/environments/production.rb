@@ -94,8 +94,8 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.smtp_settings = {
-  :user_name      => 'objms_key',
-  :password       => ENV['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'],
+  :user_name      => 'apikey',
+  :password       => ENV[SENDGRID_API_KEY'],
   :domain => 'herokuapp.com',
   :address => 'smtp.sendgrid.net',
   :port => 587,
