@@ -27,8 +27,8 @@ set :environment, rails_env
 #   rake "some:great:rake:task"
 #   command "/usr/bin/some_great_command"
 #
-# every 4.days do
-#   runner "AnotherModel.prune_old_records"
-# end
+every 4.days do
+  runner "AnotherModel.prune_old_records"
+end
 
 # Learn more: http://github.com/javan/whenever
