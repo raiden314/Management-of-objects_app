@@ -21,9 +21,9 @@ require File.expand_path(File.dirname(__FILE__) + "/environment")
 rails_env = ENV['RAILS_ENV'] || :development
 set :environment, rails_env
 #
- every 1.minute do
-    rake 'roop:try'
- end
+#  every 1.minute do
+#     rake 'roop:try'
+#  end
 #   rake "some:great:rake:task"
 #   command "/usr/bin/some_great_command"
 #
