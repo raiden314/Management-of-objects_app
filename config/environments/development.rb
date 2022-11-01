@@ -76,4 +76,20 @@ Rails.application.configure do
 #   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = { :address => '127.0.0.1', :port => 1025 }
+  
+  config.action_mailer.perform_caching = false
+  host = 'localhost:3000'
+  config.action_mailer.default_url_options = { host: host, protocol: 'http' }
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  
+  config.action_mailer.smtp_settings = {
+    :address => 'smtp.sendgrid.net',
+    :port => 587,
+    :domain => 'localhost',
+    :user_name => 'apikey',
+    :password => ENV['SENDGRID_API_KEY'],
+    :authentication => :plain,
+    :enable_starttls_auto => true
+  }
 end
