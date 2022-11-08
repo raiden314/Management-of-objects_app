@@ -116,6 +116,10 @@ Rails.application.configure do
     :enable_starttls_auto => true
   }
 
+  config.action_controller.asset_host = 'https://objms.herokuapp.com'
+  config.action_mailer.asset_host = config.action_controller.asset_host
+  config.action_mailer.default_url_options = { host: 'https://objms.herokuapp.com' }
+
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 end

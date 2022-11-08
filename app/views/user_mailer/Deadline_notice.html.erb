@@ -1,6 +1,8 @@
-<h1>User#Deadline_notice</h1>
+<%= @greeting %>, find me in app/views/user_mailer/Deadline_notice.text.erb
 
-<p>
-  <%= @greeting %>, find me in app/views/user_mailer/Deadline_notice.html.erb
-  <%= @user %>
-</p>
+
+<h1>あなたが登録した物の１つが、1ヶ月後(30日後)に期限が訪れます。</h1>
+<h2>名前：<%= @show[0] %></h2>
+<h2>期限：<%= @show[1].map{ |date| date.strftime("%Y年%m月%d日(%a)")} %></h2>
+<h2>注記：<%= @show[2] %></h2>
+<h2><%= image_tag "/post_images/#{@show[3]}" %></h2>
