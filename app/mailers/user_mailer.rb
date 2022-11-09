@@ -40,7 +40,7 @@ class UserMailer < ApplicationMailer
           end
           cnt=cnt+1
           mail(to: user, subject: 'TMSからのお知らせです!!')
-        elsif cnt=1
+        elsif cnt==1
           mail(to: user, subject: 'TMSからのお知らせです!!')
           cnt=cnt+1
         end
