@@ -33,10 +33,9 @@ class UserMailer < ApplicationMailer
           @show[count] = Post.find_by(id: (post.id)).image_name
           count=count+1
         end
-        if cnt<=@users.count and cnt != 1
+        if cnt<=@users.count && cnt != 1
           for i in 0..3 do
             @show[i]=@show[i+(cnt-1)*4]
-            @b<<i+(cnt-1)*4
           end
           cnt=cnt+1
           mail(to: user, subject: 'TMSからのお知らせです!!')
