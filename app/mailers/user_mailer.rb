@@ -37,12 +37,9 @@ class UserMailer < ApplicationMailer
           for i in 0..3 do
             @show[i]=@show[i+(cnt-1)*4]
           end
-          cnt=cnt+1
-          mail(to: user, subject: 'TMSからのお知らせです!!')
-        elsif cnt==1
-          mail(to: user, subject: 'TMSからのお知らせです!!')
-          cnt=cnt+1
         end
+        cnt=cnt+1
+        mail(to: user, subject: 'TMSからのお知らせです!!')
       end
     end
   end
