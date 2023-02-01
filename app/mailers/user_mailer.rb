@@ -5,12 +5,28 @@ class UserMailer < ApplicationMailer
   #
   #   en.user_mailer.Deadline_notice.subject
   #
-  def Deadline_notice
+  def Deadline_notice()
     @greeting = "Hii"
-      @show=[]
-    # @show=show
-    # @user=user
+    @show=[]
     cnt=1
+    
+    
+    # for count in 0..3 do
+    #   @show[count] = Post.where(id: (post.id)).pluck("name")
+    #   count=count+1
+    #   @show[count] = Post.where(id: (post.id)).pluck("date")
+    #   count=count+1
+    #   @show[count] = Post.where(id: (post.id)).pluck("memo")
+    #   count=count+1
+    #   @show[count] = Post.find_by(id: (post.id)).image_name
+    #   count=count+1
+    # end
+    # if cnt<=@users.count && cnt != 1
+    #   for i in 0..3 do
+  #     @show[i]=@show[i+(cnt-1)*4]
+    #   end
+    # end
+    
     @list=["name","date","memo","image_name"]
     @users = User.all
     @posts = Post.where(date: (Time.now.since(30.days)))
@@ -33,13 +49,9 @@ class UserMailer < ApplicationMailer
           @show[count] = Post.find_by(id: (post.id)).image_name
           count=count+1
         end
-        if cnt<=@users.count && cnt != 1
-          for i in 0..3 do
-            @show[i]=@show[i+(cnt-1)*4]
-          end
-        end
         cnt=cnt+1
         mail(to: user, subject: 'TMSからのお知らせです!!')
+        logger.error "user_id: #{@show[1]}をメール送信"
       end
     end
   end

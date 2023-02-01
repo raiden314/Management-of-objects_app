@@ -1,22 +1,28 @@
-<div class="main users-new">
-  <div class="container">
-    <div class="form-heading">ログイン</div>
-    <div class="form users-form">
-      <div class="form-body">
-        <% if @error_message %>
-          <div class="form-error">
-            <%= @error_message %>
-          </div>
-        <% end %>
-        <%= form_tag("/login") do %>
-          <p>メールアドレス</p>
-          <input type="email" name="email" value="<%= @email %>">
-          <p>パスワード</p>
-          <input type="password" name="password" value="<%= @password %>">
-          <input type="submit" value="ログイン">
-        <% end %>
+<% content_for :css do %>
+  <%= stylesheet_link_tag 'create_login', media: 'all', 'data-turbolinks-track': 'reload' %>
+<% end %>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<div class="container">
+  <div class="card card-container">
+    <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
+    <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+    <p id="profile-name" class="profile-name-card"></p>
+    <% if @error_message %>
+      <div class="form-error">
+        <%= @error_message %>
       </div>
-    </div>
-    </div>
-  </div>
-</div>
+    <% end %>
+    <%= form_tag("/login") do %>
+      <div class="form-signin">
+        <span id="reauth-email" class="reauth-email"></span>
+        <label for="inputEmail">メールアドレス</label>
+        <input type="email" name="email" value="<%= @email %>" id="inputEmail" class="form-control" placeholder="メールアドレス" required autofocus>
+        <label for="inputPassword">パスワード</label>
+        <input type="password" name="password" value="<%= @password %>" id="inputPassword" class="form-control" placeholder="パスワード" required>
+        <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">ログイン</button>
+      </div>
+    <% end %>
+  </div><!-- /card-container -->
+</div><!-- /container -->

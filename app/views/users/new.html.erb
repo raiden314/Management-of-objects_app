@@ -1,24 +1,29 @@
-<div class="main users-new">
-  <div class="container">
-    <div class="form-heading">新規ユーザー登録</div>
-    <div class="form users-form">
-      <div class="form-body">
-      <% @user.errors.full_messages.each do |message| %>
-        <div class="form-error">
-          %= message %>
-        </div>
-      <% end %>
-        <%= form_tag("/users/create") do %>
-            <p>ユーザー名</p>
-            <input name="name" value="<%= @user.name %>">
-            <p>メールアドレス</p>
-            <input type="email" name="email" value="<%= @user.email %>">
-            <p>パスワード</p>
-            <input type="password" name="password" value="<%= @user.password %>">
-            <p></p>
-            <input type="submit" value="新規登録">
-        <% end %>
+<% content_for :css do %>
+  <%= stylesheet_link_tag 'create_login', media: 'all', 'data-turbolinks-track': 'reload' %>
+<% end %>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<div class="container">
+  <div class="card card-container">
+  <h1>ユーザー登録</h1>
+    <p id="profile-name" class="profile-name-card"></p>
+    <% @user.errors.full_messages.each do |message| %>
+      <div class="form-error">
+        <%= message %>
       </div>
-    </div>
-  </div>
-</div>
+    <% end %>
+    <%= form_tag("/users/create") do %>
+      <div class="form-signin">
+        <span id="reauth-email" class="reauth-email"></span>
+        <label for="inputUser">ユーザー名</label>
+        <input type="name" name="name" value="<%= @user.name %>" id="inputUser" class="form-control" placeholder="ユーザー名" required autofocus>
+        <label for="inputEmail">メールアドレス</label>
+        <input type="email" name="email" value="<%= @user.email %>" id="inputEmail" class="form-control" placeholder="メールアドレス" required autofocus>
+        <label for="inputPassword">パスワード</label>
+        <input type="password" name="password" value="<%= @user.password %>" id="inputPassword" class="form-control" placeholder="パスワード" required>
+        <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">登録</button>
+      </div>
+    <% end %>
+  </div><!-- /card-container -->
+</div><!-- /container -->

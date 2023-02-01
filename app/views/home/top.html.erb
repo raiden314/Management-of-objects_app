@@ -1,6 +1,29 @@
-<div class="top-main">
-    <h2>TMSとは</h2>
-    <p>
-        物の期限を管理するサービスです。
-    </p>
-</div>
+<% content_for :css do %>
+    <%= stylesheet_link_tag 'top',:media => "all" %>
+    
+<% end %>
+<!DOCTYPE html>
+<html lang="ja" id="home" class="big-bg">
+    <head>
+        <meta charset="utf-8">
+        <title>TMS</title>
+        <meta name="description" content="様々な物の期限を管理する">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+         <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+         <link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet">
+    </head>
+    <body>
+        <div>
+            <div class="home-content wrapper">
+                <h2 class="page-title">TMSへようこそ</h2>
+                <p>TMSを使って、物の期限管理を行えます。</p>
+                <%= link_to("会員登録する", "/users/signup", {class: "button"}) %>
+
+
+                <%= link_to("ログインする", "/login", {class: "button"}) %>
+            </div>
+        </div>>
+    </body>
+</html>
+
+    

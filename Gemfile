@@ -83,3 +83,12 @@ group :development do
   gem 'letter_opener_web', '~> 1.0'
 end
 gem 'dotenv-rails'
+
+gem 'mechanize'
+gem 'metainspector'
+gem 'pry-rails'
+gem 'pry-byebug'
+gem 'jquery-rails'
+gem 'jquery-turbolinks'
+# gem 'bootstrap', '~> 4.3.1'
+# gem 'jquery-rails'

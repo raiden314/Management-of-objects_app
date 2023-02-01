@@ -1,18 +1,195 @@
+<% content_for :css do %>
+  <%= stylesheet_link_tag 'post_index', media: 'all', 'data-turbolinks-track': 'reload' %>
+<% end %>
+<!doctype html>
+<html lang="ja" class="h-100">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<div class="main posts-index">
-  <div class="container">
-    <% @posts.each do |post| %>
-        <div class="posts-index-item">
-          <% if @current_user != 1 %>
-            <%= link_to(post.name,"/posts/#{post.id}") %>
-          <% else %>
-            <% if  @posts.id != i %>
-              <%= @posts.id %>
-              <% i = i + 1%>
-            <% end %>
-            <%= link_to(post.name,"/posts/#{post.id}") %> %>
-          <% end %>
-        </div>
-    <% end %>
-  </div>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+    <title>Hello, world!</title>
+  </head>
+  <body class="coo">
+    
+  <div class="editor fix-height">
+    <div class="dropdown a">
+      <header>
+        <nav class="navbar navbar-expand-md  navbar-dark bg-dark fixed-top">
+          <a class="navbar-brand btn btn-sm btn-info" href="/about">TMS</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="navbar-brand btn btn-sm btn-info" href="/posts/new">新規登録</a>
+              </li>
+              <li class="nav-item active">
+              <!-- <a class="navbar-brand btn btn-sm btn-dark" href="/users/<%= @current_user.id %>"><%= @current_user.name %> <span class="sr-only">(current)</span></a> -->
+              <a class="nav-link" href="/users/<%= @current_user.id %>"><%= @current_user.name %> <span class="sr-only">(current)</span></a>
+              </li>
+            </ul>
+            <ul class="navbar-nav">
+              <li class="nav-item active">
+                <a class="navbar-brand btn btn-sm btn-outline-info" href="/logout">ログアウト</a>
+              </li>
+            </ul>
+            <!-- <form class="form-inline mt-2 mt-md-0">
+              <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form> -->
+          </div>
+        </nav>
+      </header>
+      
+      
+      </div>
+    <div class="fix-height">
+      <div class="container-fluid">
+      <div class="row">
+              <% @posts.each do |post| %>
+                <%= link_to "/posts/#{post.id}", class: "col-lg-2 col-4 my-box co" do  %>
+                  <h1><%= post.name %></h1>
+                  <% @count+=1 %>
+                <% end %>
+                <% if @count % 3 == 0 %>
+                  <div class="col-12 my-box ta"></div>
+                <% end %>
+              <% end %>
+              </div>
+
+          
+          <!--<footer class="status fix-width coo">
+            <nav aria-label="breadcrumbs coo">
+              <ol class="breadcrumbs coo">
+                <li class="breadcrumb-item"><a href="a.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="#">Library</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Data</li>
+              </ol>
+            </nav>
+        </footer> -->
+        
+      </div>
+      
+    
+    </div>
+    
+    
 </div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+<script>
+  var w = $(window).width()
+  var h = $(window).height()
+  let han = 0
+  $(function () {
+    $("h2").css("color", "#0000FF");
+    $('#result').text(`幅: ${w} 高さ:${h} han: ${han}`)
+  $(window).resize(function () {
+    w = $(window).width()
+    h = $(window).height()
+    han = (w > 991) ? han += 1 : han = 0
+    if (han === 1) {
+      $('.row').html(`
+      <% @count=0 %> 
+      <% @posts.each do |post| %> 
+          <%= link_to "/posts/#{post.id}", class: "col-lg-2 col-4 my-box co" do  %>
+            <%= post.name %>
+            <% @count+=1 %>
+          <% end %>
+        <% if @count % 6 == 0 %>
+          <div class="col-12 my-box ta"></div>
+        <% end %>
+      <% end %>
+      <% for num in 1..30-@count %>
+        <a class="col-lg-2 col-4 my-box co">
+          <% @count+=1 %>
+        </a>
+        <% if @count % 6 == 0 %>
+          <div class="col-12 my-box ta"></div>
+        <% end %>
+      <% end %>
+      `)
+    }else if(han === 0){
+      $('.row').html(`
+      <% @count=0 %> 
+      <% @posts.each do |post| %>
+        <%= link_to "/posts/#{post.id}", class: "col-lg-2 col-4 my-box co" do  %>
+          <%= post.name %>
+          <% @count+=1 %>
+        <% end %>
+        <% if @count % 3 == 0 %>
+          <div class="col-12 my-box ta"></div>
+        <% end %>
+      <% end %>
+      <% for num in 1..15-@count %>
+        <a class="col-lg-2 col-4 my-box co">
+          <% @count+=1 %>
+        </a>
+        <% if @count % 3 == 0 %>
+          <div class="col-12 my-box ta"></div>
+        <% end %>
+      <% end %>
+      `)
+    }
+    $('#result').text(`幅: ${w} 高さ:${h} han: ${han}`)
+  })
+  w = $(window).width()
+  h = $(window).height()
+  han = (w > 991) ? han += 1 : han = 0
+  if (han === 1) {
+    $('.row').html(`
+    <% @count=0 %> 
+    <% @posts.each do |post| %> 
+      <%= link_to "/posts/#{post.id}", class: "col-lg-2 col-4 my-box co" do  %>
+        <%= post.name %>
+        <% @count+=1 %>
+      <% end %>
+      <% if @count % 6 == 0 %>
+        <div class="col-12 my-box ta"></div>
+      <% end %>
+    <% end %>
+    <% for num in 1..30-@count %>
+      <a class="col-lg-2 col-4 my-box co">
+        <% @count+=1 %>
+      </a>
+      <% if @count % 6 == 0 %>
+        <div class="col-12 my-box ta"></div>
+      <% end %>
+    <% end %>
+    `)
+  }else if(han === 0){
+    $('.row').html(`
+    <% @count=0 %> 
+    <% @posts.each do |post| %>
+      <%= link_to "/posts/#{post.id}", class: "col-lg-2 col-4 my-box co" do  %>
+        <%= post.name %>
+        <% @count+=1 %>
+      <% end %>
+      <% if @count % 3 == 0 %>
+        <div class="col-12 my-box ta"></div>
+      <% end %>
+    <% end %>
+    <% for num in 1..15-@count %>
+      <a class="col-lg-2 col-4 my-box co">
+        <% @count+=1 %>
+      </a>
+      <% if @count % 3 == 0 %>
+        <div class="col-12 my-box ta"></div>
+      <% end %>
+    <% end %>
+    `)
+  }
+
+})
+</script>  
+</body>
+</html>

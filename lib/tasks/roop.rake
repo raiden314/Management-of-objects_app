@@ -5,6 +5,7 @@ namespace :roop do
       begin
         # puts User.first().to_yaml
 
+        # cnt=1
         # @users = User.all
         # @posts = Post.where(date: (Time.now.since(30.days)))
         # @user=""
@@ -16,20 +17,17 @@ namespace :roop do
         #   @users.each do |user|
         #     @show = []
         #     @posts.each do |post|
-        #       for count in 0..3 do
-        #         @show[count] = Post.where(id: (post.id)).pluck("name")
-        #         count=count+1
-        #         @show[count] = Post.where(id: (post.id)).pluck("date")
-        #         count=count+1
-        #         @show[count] = Post.where(id: (post.id)).pluck("memo")
-        #         count=count+1
-        #         @show[count] = Post.find_by(id: (post.id)).image_name
-        #         count=count+1
-        #       end
+               
+        #       @user=user
+        #       @post=post
+        #       mail=UserMailer.Deadline_notice(cnt,@user,@post)
+        #       p mail
+              
               UserMailer.Deadline_notice.deliver_now
-        #     end
-        #   end
-        # end
+              # cnt=cnt+1
+            end
+          end
+        end
         
  
       rescue => e

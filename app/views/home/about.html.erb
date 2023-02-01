@@ -1,3 +1,53 @@
+<% content_for :css do %>
+  
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+<% end %>
+<header>
+      <div class="header-logo">
+        <% if @current_user %>
+          <% if @current_user.id != 1 %>
+            <%= link_to("TMS", "/posts/index") %>
+          <% else %>
+            TMS
+          <% end %>
+        <% else %>
+          <%= link_to("TMS", "/") %>
+        <% end %>
+      </div>
+      <ul class="header-menus">
+        <% if @current_user %>
+          <li>
+              <%= link_to(@current_user.name,"/users/#{@current_user.id}") %>
+          </li>
+          <% if @current_user.id == 1 %>
+            <li>
+              <%= link_to("ユーザー一覧", "/users/index") %>
+            </li>
+          <% end %>
+          <% if @current_user.id != 1 %>
+            <li>
+            <%= link_to("投稿一覧", "/posts/index") %>
+            </li>
+            <li>
+              <%= link_to("新規投稿","/posts/new") %>
+            </li>
+          <% end %>
+          <li>
+            <%= link_to("ログアウト", "/logout") %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to("TMSの使い方", "/about") %>
+          </li>
+          <li>
+            <%= link_to("新規登録", "/users/signup") %>
+          </li>
+          <li>
+            <%= link_to("ログイン", "/login") %>
+          </li>
+        <% end %>
+      </ul>
+    </header>
 <div class="about-main">
   <h2>TMSの使い方</h2>
   <p>

@@ -1,0 +1,103 @@
+* {
+    font-family: 'Noto Sans JP', sans-serif;
+}
+.coo{
+    background-image: url(b.jpg);
+}
+.co{
+    position: relative;
+    /* background-image: url(book.jpeg); */
+    background-color: turquoise;
+    background-size:130% 300%;
+    background-repeat: no-repeat;
+    height: 12vh;
+    text-decoration:none
+}
+a.co{
+    color: #e9ecef;
+    text-decoration:none;
+    border: solid 3px #555555;
+}
+.co2{
+    /* max-height: 100%; */
+    height: 12vh;
+    background-color: #fff;
+    scroll-padding-block-end: 2;
+}
+.ta{
+    background-image: url(b.jpg);
+    height: 5vh;
+    width: 20px;
+}
+img{
+    max-width: 100%;
+    height: auto;
+}
+.a{
+    padding-bottom: 10px;
+    text-align:right;
+    
+}
+/* Base */
+html,body { height:100%; margin:0; }
+
+/* Common */
+.fix-height {
+    box-sizing: border-box;
+    height: 100%;
+}
+.fix-width {
+    box-sizing: border-box;
+    width: 100%;
+}
+
+/* General */
+.editor {
+    margin: 0;
+    padding: 8vh 8vh 8.4vh;
+    
+}
+
+/* Informations */
+.informations {
+    height: 20px;
+    left: 0;
+    position: absolute;
+    top: 0;
+}
+.informations input {
+    height: 30px;
+}
+
+/* Body */
+.main {
+    height: 100%;
+}
+/* #body {
+    resize: none;
+} */
+
+/* Status */
+.status {
+    background-image: url(b.jpg);
+    bottom: 0;
+    color: #666;
+    font-size: 12px;
+    height: 20px;
+    left: 0;
+    line-height: 16px;
+    
+    position: absolute;
+    text-shadow: 1px 1px #fff;
+    width: 100%;
+}
+.breadcrumbs {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+    list-style: none;
+    background-color: #e9ecef;
+    border-radius: .25rem;
+}

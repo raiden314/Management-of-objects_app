@@ -1,0 +1,45 @@
+* {
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+a{
+  color: #e9ecef;
+  text-decoration:none;
+}
+
+img{
+  max-width: 100%;
+  height: auto;
+}
+
+/* Base */
+html,body { height:100%; margin:0; }
+
+
+
+/* General */
+.editor {
+  margin: 0;
+  padding: 8vh 8vh 8.4vh;
+  
+}
+
+
+
+/* Body */
+.main {
+  height: 100%;
+}
+/* #body {
+  resize: none;
+} */
+
+li {
+  padding:10px 0; /*縦方向の余白を指定*/
+  list-style: none;
+  
+  }
+  .form-error {
+    color: #ff4d75;
+  }
+  
