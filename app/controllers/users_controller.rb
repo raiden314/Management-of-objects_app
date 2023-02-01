@@ -34,7 +34,7 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id]=@user.id
       flash[:notice]="ユーザー登録が完了しました"
-      redirect_to("/about")
+      redirect_to("/users/#{@user.id}")
     else
       render("users/new",status: :unprocessable_entity)
     end
@@ -79,6 +79,6 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find_by(id: params[:id])
     @user.destroy
-    redirect_to("/users/index")
+    redirect_to("/")
   end
 end

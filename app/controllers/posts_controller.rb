@@ -8,7 +8,6 @@ class PostsController < ApplicationController
       @posts = @post.user_id
     end
     @count=0
-    # binding.pry
   end
 
   def show
@@ -53,14 +52,12 @@ class PostsController < ApplicationController
     @post.name=params[:name]
     @post.date=params[:date]
     @post.memo=params[:memo]
-    # binding.pry
     if params[:image]
       @post.image_name = "#{@post.id}.jpg"
-    image = params[:image]
+      image = params[:image]
       File.binwrite("public/post_images/#{@post.image_name}",image.read)
     end
     @post.save
-    
     redirect_to("/posts/index")
   end
 
